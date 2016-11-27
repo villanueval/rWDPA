@@ -1,0 +1,62 @@
+---
+title: "rWDPA example to query GBIF"
+author: "Luis J. Villanueva-Rivera"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+This vignettes works as an example of using the `rWDPA` to search for a protected area and then get the occurrence reports from GBIF for that area.
+
+## Get a list of countries in the WDPA database
+
+```{r, eval = FALSE}
+countries <- getWDPACountries(filename = 'countries.csv', api_key='xxxxxxxxxxx')
+```
+
+From that list, we see that the ISO code for Puerto Rico is 'PRI'. Use this ISO code in the other functions.
+
+## Search for a protected areas in a country
+
+```{r, eval = FALSE}
+areas <- getWDPACountryAreas(country_iso = 'PRI', filename = 'areas.csv', api_key='xxxxxxxxxxx')
+```
+
+From this list, the WDPA ID of the protected area 'Isla de Mona' is 12438. 
+
+## Get details of a protected area
+
+Use the WDPA ID to get the details of a protected area, including the geometry.
+
+```{r, eval = FALSE}
+islamona <- getWDPA(wdpaid = 12438, with_geometry = TRUE, filename = 'islamona.geojson', api_key='xxxxxxxxxxx')
+```
+
+## Get occurrence reports from GBIF for a protected area
+
+With the geometry, we can now query GBIF for species reports. This example uses the packages `wellknown` and `rgbif`.
+
+```{r, eval = FALSE}
+library(rgbif)
+library(wellknown)
+
+#Save the geometry as WKT
+im.wkt <- geojson2wkt(toJSON(islamona$geojson$geometry))
+
+#Save occurrence reports in the geometry, limited to preserved specimens
+im.occ_results <- occ_search(geometry = im.wkt, basisOfRecord = 'PRESERVED_SPECIMEN')
+
+#Save these results to a file
+write.csv(im.occ_results$data, file = 'im.occ_results.csv')
+
+#Plot results using sp and leaflet
+library(sp)
+library(leaflet)
+
+s <- SpatialPoints(data.frame(cbind(im.occ_results$data$decimalLongitude, im.occ_results$data$decimalLatitude)))
+
+map_leaf(s)
+```
