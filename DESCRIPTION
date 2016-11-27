@@ -1,9 +1,9 @@
 Package: rWDPA
-Title: Package to query the WDPA (protectedplanet.net) API
+Title: Query the ProtectedPlanet.net WDPA API
 Version: 0.1
 Date: 2016-11-27
 Authors@R: person("Luis J.", "Villanueva-Rivera", email = "ljvillanueva@coquipr.com", role = c("aut", "cre"))
-Description: This package searches the ProtectedPlanet.net WDPA API. You will need to request an API key from https://api.protectedplanet.net before using this package.
+Description: Query the World Database on Protected Areas API from ProtectedPlanet.net. You will need to request an API key from https://api.protectedplanet.net before using this package.
 Depends: R (>= 3.0), jsonlite, geojsonio
 License: GPL-3
 Encoding: UTF-8

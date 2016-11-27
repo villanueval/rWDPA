@@ -5,6 +5,7 @@
 #' @param filename Store the list of countries and their ISO code to this file in CSV format
 #' @param api_key ProtectedPlanet.net API key 
 #' @importFrom jsonlite fromJSON
+#' @importFrom utils write.csv
 #' @export
 #' @examples
 #' \dontrun{

@@ -4,8 +4,9 @@
 #'
 #' @param country_iso The ISO code for the country to search for
 #' @param filename Store the list of areas found in this file in CSV format
-#' @param api_key ProtectedPlanet.net API key 
+#' @param api_key ProtectedPlanet.net API key
 #' @importFrom jsonlite fromJSON
+#' @importFrom utils write.csv
 #' @export
 #' @examples
 #' \dontrun{
