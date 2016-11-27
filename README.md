@@ -14,5 +14,5 @@ To install the package from github:
 ```r
 install.packages("devtools")
 library("devtools")
-devtools::install_github("ljvillanuva/rWDPA")
+devtools::install_github("ljvillanueva/rWDPA")
 ```
