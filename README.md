@@ -3,10 +3,10 @@ Package to query the World Database on Protected Areas (WDPA; ProtectedPlanet.ne
 
 To use this package, you will need to request an API key from https://api.protectedplanet.net
 
-In Ubuntu, you may need to install  need to install 
+In Ubuntu, you may need to install: 
 
 ```r
-sudo apt-get install libgdal1-dev libgdal-dev libgeos-c1 libproj-dev libv8-dev
+sudo apt-get install libgdal1-dev libgdal-dev libgeos-c1v5 libproj-dev libv8-dev
 ```
 
 To install the package from github:

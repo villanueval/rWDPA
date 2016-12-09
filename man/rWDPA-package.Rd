@@ -10,15 +10,4 @@ This package searches the ProtectedPlanet.net WDPA API.
 You will need to request an API key from 
 https://api.protectedplanet.net before using this package.
 }
-\seealso{
-Useful links:
-\itemize{
-  \item Report bugs at \url{http://github.com/ljvillanueva/rWDPA/issues}
-}
-
-}
-\author{
-\strong{Maintainer}: Luis J. Villanueva-Rivera \email{ljvillanueva@coquipr.com}
-
-}
 
